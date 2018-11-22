@@ -1,0 +1,9 @@
+<h1><%= @problem.number%>) <%=@problem.title %> Problem Details:</h1>
+
+<hr>
+<b>SiteName:</b><i><%= @problem.site_name %></i><br>
+<b>Difficulty:</b><i><%= @problem.difficulty %></i><br>
+<b>Solution:</b><i><%= @problem.solution %></i><br>
+<hr>
+
+<%= link_to 'Back to list', {:action => "list"} %>

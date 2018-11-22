@@ -1,0 +1,14 @@
+<h1>Edit the Problem details</h1>
+
+<%= form_for @problem, :url => {:action => 'update', :id => @problem} do |e| %>
+	<p>Number: <%= e.number_field 'number' %></p>
+	<p>Title: <%= e.text_field 'title' %></p>
+	<p>Site Name: <%= e.select(:site_name, [["GeeksforGeeks", "GeeksforGeeks"], ["LeetCode", "LeetCode"], ["HackerRank", "HackerRank"]]) %></p>
+	<p>Difficulty:<%= e.text_field 'difficulty' %></p>
+	<p>Solution:<br>
+		<%= e.text_area 'solution' %></p>
+	<br>
+
+	<p><%= e.submit "Save Changes" %></p>
+<% end -%>
+<%= link_to 'Back to list', {:action => 'list'} %>

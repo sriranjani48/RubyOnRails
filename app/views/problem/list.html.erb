@@ -1,0 +1,28 @@
+<h1>List of Problems</h1>
+
+<% if @problems.blank? %>
+<p>There is no Problems listed.</p>
+
+<% else %>
+	<table>
+	 	<tr>
+	 		<th>Number</th>
+	 		<th>Title</th>
+	 		<th>SiteName</th>
+	 		<th>Difficulty</th>
+	 	</tr>
+	 	<% @problems.each do |p| %>
+	 		<tr>
+
+			 	<td><%= p.number %></td>
+			 	<td><%= link_to p.title, {:action => 'show', :id => p.id} %></td>
+			 	<td><%= p.site_name %></td>
+			 	<td><%= p.difficulty %></td>
+			 	<td><%= link_to 'Edit', {:action => "edit", :id => p.id } %></td>
+			 	<td><%= link_to 'Delete', {:action => 'delete', :id => p.id }, :confirm => "Are you sure you want to delete this problem?" %></td>
+	 		</tr>
+	 	<% end -%>
+	</table> 
+<%end%>
+
+<p><%= link_to 'Add new Problems', {:action => 'new'} %> </p>

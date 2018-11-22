@@ -1,0 +1,30 @@
+<h1>Adding New Problem</h1>
+
+<%= form_tag :action => 'create' do %>
+	<p><label for = "problem_number">Number</label>:
+		<%=number_field 'problems', 'number' %>
+	</p>
+	<p><label for = 'problem_title'>Title</label>:
+		<%= text_field 'problems', 'title' %>
+	</p>	
+	<p><label for = "site_name">Site Name</label>:
+		<%= select(:problems, :site_name, [["GeeksforGeeks", "GeeksforGeeks"], ["LeetCode", "LeetCode"], ["HackerRank", "HackerRank"]]) %>	
+	</p>
+	<p><label for = "problem_difficulty">Difficulty</label>:
+		<%= text_field 'problems', "difficulty" %>
+	</p>
+	<!--<p><label for = "problem_difficulty">Difficulty</label>:
+		<%= radio_button_tag(:difficulty, "easy") %>
+		<%= label_tag(:easy_problem, "Easy") %>
+		<%= radio_button_tag(:difficulty, "medium") %>
+		<%= label_tag(:medium_problem, "Medium") %>
+		<%= radio_button_tag(:difficulty, "difficult") %>
+		<%= label_tag(:difficult_problem, "Difficult") %>
+	</p> -->
+	<p><label for = "problem_solution">Solution</label>:<br />
+		<%= text_area 'problems', 'solution', size: "30x10" %>
+	</p>
+	<p><%= submit_tag "Create" %></p>
+<% end -%>
+
+<%= link_to 'Back to list', {:action => 'list'} %>
